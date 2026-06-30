@@ -67,11 +67,11 @@ export const summarizeMeeting = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => MeetingInput.parse(d))
   .handler(async ({ data }) => {
     const gateway = await getGateway();
-    const { experimental_output: output } = await generateText({
+    const { output } = await generateText({
       model: gateway(MODEL),
       system: MEETING_SUMMARIZER_PROMPT,
       prompt: data.notes,
-      experimental_output: Output.object({ schema: MeetingSchema }),
+      output: Output.object({ schema: MeetingSchema }),
     });
     return { summary: output, systemPrompt: MEETING_SUMMARIZER_PROMPT };
   });
@@ -106,11 +106,11 @@ export const planTasks = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const gateway = await getGateway();
     const prompt = `Tasks: ${data.description}\nOverall urgency: ${data.urgency}\nTimeframe: ${data.timeframe.replace("_", " ")}`;
-    const { experimental_output: output } = await generateText({
+    const { output } = await generateText({
       model: gateway(MODEL),
       system: TASK_PLANNER_PROMPT,
       prompt,
-      experimental_output: Output.object({ schema: TaskSchema }),
+      output: Output.object({ schema: TaskSchema }),
     });
     return { plan: output, systemPrompt: TASK_PLANNER_PROMPT };
   });
@@ -143,11 +143,11 @@ export const analyzeResearch = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const gateway = await getGateway();
     const prompt = `Research angle: ${data.angle}\n\nContent:\n${data.content}`;
-    const { experimental_output: output } = await generateText({
+    const { output } = await generateText({
       model: gateway(MODEL),
       system: RESEARCH_PROMPT,
       prompt,
-      experimental_output: Output.object({ schema: ResearchSchema }),
+      output: Output.object({ schema: ResearchSchema }),
     });
     return { research: output, systemPrompt: RESEARCH_PROMPT };
   });
