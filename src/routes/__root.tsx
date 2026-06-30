@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "AI solution" },
+      { name: "description", content: "Automates 5 workplace tasks with AI, including email generation, meeting summarization, and task planning." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "AI solution" },
+      { property: "og:description", content: "Automates 5 workplace tasks with AI, including email generation, meeting summarization, and task planning." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "AI solution" },
+      { name: "twitter:description", content: "Automates 5 workplace tasks with AI, including email generation, meeting summarization, and task planning." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3d7c30de-d776-4b79-9c97-544511f9fa01/id-preview-bb35c821--262030fa-43e6-44fb-a4c1-a896fa8144e2.lovable.app-1782839817779.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3d7c30de-d776-4b79-9c97-544511f9fa01/id-preview-bb35c821--262030fa-43e6-44fb-a4c1-a896fa8144e2.lovable.app-1782839817779.png" },
     ],
     links: [
       {
