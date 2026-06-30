@@ -24,7 +24,7 @@ const EmailInput = z.object({
 });
 
 export const generateEmails = createServerFn({ method: "POST" })
-  .inputValidator((d: unknown) => EmailInput.parse(d))
+  .validator((d: unknown) => EmailInput.parse(d))
   .handler(async ({ data }) => {
     const gateway = await getGateway();
     const model = gateway(MODEL);
@@ -64,7 +64,7 @@ const MeetingSchema = z.object({
 });
 
 export const summarizeMeeting = createServerFn({ method: "POST" })
-  .inputValidator((d: unknown) => MeetingInput.parse(d))
+  .validator((d: unknown) => MeetingInput.parse(d))
   .handler(async ({ data }) => {
     const gateway = await getGateway();
     const { output } = await generateText({
@@ -102,7 +102,7 @@ const TaskSchema = z.object({
 });
 
 export const planTasks = createServerFn({ method: "POST" })
-  .inputValidator((d: unknown) => TaskInput.parse(d))
+  .validator((d: unknown) => TaskInput.parse(d))
   .handler(async ({ data }) => {
     const gateway = await getGateway();
     const prompt = `Tasks: ${data.description}\nOverall urgency: ${data.urgency}\nTimeframe: ${data.timeframe.replace("_", " ")}`;
@@ -139,7 +139,7 @@ const ResearchSchema = z.object({
 });
 
 export const analyzeResearch = createServerFn({ method: "POST" })
-  .inputValidator((d: unknown) => ResearchInput.parse(d))
+  .validator((d: unknown) => ResearchInput.parse(d))
   .handler(async ({ data }) => {
     const gateway = await getGateway();
     const prompt = `Research angle: ${data.angle}\n\nContent:\n${data.content}`;
