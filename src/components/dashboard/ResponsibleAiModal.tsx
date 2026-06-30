@@ -14,10 +14,7 @@ export function ResponsibleAiModal({ open, onAcknowledge }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={() => {}}>
-      <DialogContent
-        className="max-w-2xl border-border-strong bg-surface"
-        showCloseButton={false}
-      >
+      <DialogContent className="max-w-2xl border-border-strong bg-surface">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-xl">
             <ShieldAlert className="h-5 w-5 text-primary" />
